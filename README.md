@@ -1,0 +1,2 @@
+### Knowledge Base
+This project aims to consolidate all my information on one platform. The goal is to be able to deeply understand what I learn, and be able to review those topics at any given moment.
