@@ -1,0 +1,17 @@
+.navbar-brand {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-burger {
+    /* Position navbar to the left corner */
+    margin-left: 0;
+}
+
+.github-link {
+    width: 3.25rem;
+    display: block;
+    font-size: 1em;
+    cursor: pointer;
+    position: relative;
+}
