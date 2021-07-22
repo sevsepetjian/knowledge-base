@@ -4,32 +4,7 @@
 
 <h1>{{ name }}</h1>
 <nav>
-    <div>
-        <h1>Categories</h1>
-        <div>
-            <div>
-                <h1>programming</h1>
-                <ul>
-                    <li>cs</li>
-                    <li>hardware</li>
-                    <li>design</li>
-                </ul>
-            </div>
-            <div>
-                <h1>philosophy</h1>
-                <ul>
-                    <li>
-                        <div>
-                            <h1>Jungian</h1>
-                            <ul>
-                                <li>jungian.md</li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    {{ categories | safe }}
 </nav>
 {{ html | safe }}
 
