@@ -10,7 +10,7 @@ def index_page():
     path = os.path.dirname(os.path.abspath(__file__)) + '/categories'
     categories = generate_tree_html.generate_tree_html(path)
 
-    return render_template('index.html', name='Sevag', categories=categories)
+    return render_template('index.html', categories = categories)
 
 @app.route('/article/<filename>')
 def article_page(filename):
@@ -22,7 +22,7 @@ def article_page(filename):
 
     html = markdown.markdown(text)
     
-    return render_template('index.html', name='Sevag', html = html)
+    return render_template('index.html', html = html)
 
 if __name__ == 'main':
     app.run(debug = True)
