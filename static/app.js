@@ -22,8 +22,7 @@ const toggleMenu = () => {
         menuOverlay.remove()    
     }
 
-    menu.classList.toggle('is-hidden-mobile')
-    menu.style.transform = 'translateX(0)'
+    menu.classList.toggle('menu-open')
 }
 
 navbarBurger.addEventListener('click', () => toggleMenu())
