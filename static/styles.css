@@ -9,6 +9,7 @@
 }
 
 .github-link {
+    color: inherit;
     width: 3.25rem;
     display: block;
     font-size: 1em;
@@ -16,9 +17,13 @@
     position: relative;
 }
 
+.github-link i {
+    font-size: 1.5rem;
+}
+
 .menu {
-    background-color: blue;
     position: fixed;
+    background-color: #fff;
     z-index: 99;
     width: 70vw;
     height: 100vh;
@@ -26,6 +31,7 @@
     bottom: 0;
     transform: translateX(-100%);
     transition: transform 250ms ease-in-out;
+    padding: 1rem;
 }
 
 .menu-open {
@@ -40,4 +46,8 @@
     position: fixed;
     top: 0;
     bottom: 0;
+}
+
+.footer {
+    padding: 1rem 1.5rem 1rem;
 }
