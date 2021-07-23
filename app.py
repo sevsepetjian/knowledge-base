@@ -15,6 +15,7 @@ def index_page():
 @app.route('/article/<filename>')
 def article_page(filename):
     path = os.path.dirname(os.path.abspath(__file__)) + '/categories'
+    categories = generate_tree_html.generate_tree_html(path)
     file_path = find_file.find_file(path, filename + '.md')
 
     with open(file_path, 'r') as input_file:
@@ -22,7 +23,7 @@ def article_page(filename):
 
     html = markdown.markdown(text)
     
-    return render_template('index.html', html = html)
+    return render_template('article.html', html = html, categories = categories)
 
 if __name__ == 'main':
     app.run(debug = True)
