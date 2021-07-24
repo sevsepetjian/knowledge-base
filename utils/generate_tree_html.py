@@ -7,10 +7,12 @@ def generate_tree_html(path, html = ''):
         rel = path + '/' + file
         file_no_md = file.replace('.md', ' ')
         file_title_name = str.title(file_no_md.replace('-', ' '))
+        cur_dir_path = Path(rel)
+        dir_list = os.listdir(cur_dir_path.parent.absolute())
         if os.path.isdir(rel):
-            html += "<p class='menu-label'>%s</p>" % (file_title_name)
+            html += "<div style='margin-left: 1rem'><div class='menu-container' style='display: flex; justify-content: space-between;'><p class='menu-label'>%s</p><i class='fas fa-chevron-right'></i></div><ul class='menu-list is-hidden'>" % (file_title_name)
             html += generate_tree_html(rel)
-            html += "</ul>"
+            html += "</ul></div>"
         else:
-            html += "<ul class='menu-list'><li><a href='/article/%s'>%s</a></li>" % (file_no_md, file_title_name)
+            html += "<li><a href='/article/%s'>%s</a></li>" % (file_no_md, file_title_name)
     return html
