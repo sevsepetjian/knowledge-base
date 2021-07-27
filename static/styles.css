@@ -2,6 +2,7 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .columns {
@@ -39,7 +40,7 @@ body {
 
 .menu {
     position: fixed;
-    background-color: #F5F7F9;
+    background-color: #fff;
     z-index: 99;
     width: 70vw;
     height: 100vh;
@@ -48,10 +49,12 @@ body {
     transform: translateX(-100%);
     transition: transform 250ms ease-in-out;
     padding: 1rem;
+    visibility: hidden;
 }
 
 .menu-open {
-    transform: translateX(0)
+    transform: translateX(0);
+    visibility: visible;
 }
 
 .menu-overlay {
@@ -62,6 +65,35 @@ body {
     position: fixed;
     top: 0;
     bottom: 0;
+}
+
+.menu-label {
+    font-weight: bold;
+    color: #000;
+    font-size: .95em;
+}
+
+.menu-label:not(:last-child) {
+    margin-bottom: .7em;
+}
+
+.menu-list {
+    padding-left: .5rem;
+    border-left: 4px solid #7a7a7a;
+}
+
+.menu-list a {
+    color: #7a7a7a; 
+    padding: .3em 0;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-item-container {
+    cursor: pointer;
 }
 
 .footer {
@@ -76,6 +108,8 @@ body {
         height: 100%;
         transform: translateX(0);
         width: 100%;
+        visibility: visible;
+        margin-top: .5rem;
     }
 
     .navbar-burger-container {

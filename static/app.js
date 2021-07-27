@@ -17,7 +17,7 @@ const toggleMenu = () => {
     state.menuOpen = !state.menuOpen
 
     if (state.menuOpen) {
-       body.appendChild(createMenuOverlay) 
+        body.appendChild(createMenuOverlay) 
     } else {
         const menuOverlay = document.querySelector('.menu-overlay')
         menuOverlay.remove()    
