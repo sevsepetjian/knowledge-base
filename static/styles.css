@@ -1,5 +1,5 @@
 body {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -22,6 +22,9 @@ body {
 
 .navbar-icon {
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .navbar-burger {
@@ -36,6 +39,7 @@ body {
     font-size: 1em;
     cursor: pointer;
     position: relative;
+    padding-left: .5rem;
 }
 
 .github-link i, .home-link i {

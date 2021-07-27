@@ -14,5 +14,5 @@ def generate_tree_html(path, html = ''):
             html += generate_tree_html(rel)
             html += "</ul></div>"
         else:
-            html += "<li><a href='/article/%s'>%s</a></li>" % (file_no_md, file_title_name)
+            html += "<li><a class='menu-item' href='/article/%s'>%s</a></li>" % (file_no_md, file_title_name)
     return html

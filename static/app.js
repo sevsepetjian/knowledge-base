@@ -3,7 +3,8 @@ console.log('Client JS loaded.')
 const navbarBurger = document.querySelector('.navbar-burger')
 const menu = document.querySelector('.menu')
 const body = document.body
-const menuContainer = document.querySelectorAll('.menu-container')
+const menuContainers = document.querySelectorAll('.menu-container')
+const menuItems = document.querySelectorAll('.menu-item')
 
 const createMenuOverlay = document.createElement('div')
 createMenuOverlay.classList.add('menu-overlay')
@@ -36,7 +37,7 @@ navbarBurger.addEventListener('click', () => toggleMenu())
 
 createMenuOverlay.addEventListener('click', () => toggleMenu())
 
-menuContainer.forEach(menuContainerItem => {
+menuContainers.forEach(menuContainerItem => {
     menuContainerItem.addEventListener('click', e => {
         const menuList = e.currentTarget.nextElementSibling
         const arrowIcon = e.currentTarget.childNodes[1]
@@ -44,5 +45,36 @@ menuContainer.forEach(menuContainerItem => {
         menuList.classList.toggle('is-hidden')
         arrowIcon.classList.contains('fa-chevron-right') ? arrowIcon.classList.replace('fa-chevron-right', 'fa-chevron-down') : arrowIcon.classList.replace('fa-chevron-down', 'fa-chevron-right')
         
+    })
+})
+
+// Add is-active to clicked nav item
+if (localStorage.getItem('menu-item-clicked')) {
+    const menuItemData = JSON.parse(localStorage.getItem('menu-item-clicked'))
+
+    menuItems.forEach(menuItem => {
+        if (menuItem.innerHTML == menuItemData.targetMenuItemValue) {
+            menuItem.classList.add('is-active')
+
+            // This block deals with the menu opening up to current post. Need to figure out how to get it to work for nested divs
+            const menuList = menuItem.parentElement.parentElement
+            const arrowIcon = menuItem.parentElement.parentElement.previousElementSibling.children[1]
+
+            menuList.classList.toggle('is-hidden')
+            arrowIcon.classList.contains('fa-chevron-right') ? arrowIcon.classList.replace('fa-chevron-right', 'fa-chevron-down') : arrowIcon.classList.replace('fa-chevron-down', 'fa-chevron-right')
+            
+        }
+    })
+}
+
+menuItems.forEach(menuItem => {
+    // Removes is-active completely if user clicks on home for example
+    localStorage.removeItem('menu-item-clicked')
+
+    menuItem.addEventListener('click', e => {
+        targetMenuItem = e.currentTarget
+        targetMenuItemValue = targetMenuItem.innerHTML
+
+        localStorage.setItem('menu-item-clicked', JSON.stringify({ targetMenuItemValue, state: 'is-active'}))
     })
 })
