@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="has-navbar-fixed-top" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +11,7 @@
 <body>
     {% include 'navbar.html' %}
     
-    <div class="columns is-desktop">
+    <div class="columns is-gapless is-desktop">
         <div class="column is-3">
             {% include 'sidebar.html' %}
         </div>
@@ -19,10 +19,10 @@
         <main class="column is-9">
             {% block content %}
             {% endblock %}
-        </main>
+        </main>     
     </div>
 
-    {% include 'footer.html' %}
+    <!-- {% include 'footer.html' %} -->
 <script src="https://kit.fontawesome.com/4d34cec846.js" crossorigin="anonymous"></script>
 <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
