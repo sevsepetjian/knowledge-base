@@ -17,13 +17,19 @@ const toggleMenu = () => {
     state.menuOpen = !state.menuOpen
 
     if (state.menuOpen) {
+        // This if statement checks to see if the menu was already opened more than once by checking if the element contains the menu-close class. It fires the transition effect on menu close.
+        if (menu.classList.contains('menu-close')) {
+            menu.classList.remove('menu-open')
+            menu.classList.remove('menu-close')
+        }
+
         body.appendChild(createMenuOverlay) 
+        menu.classList.add('menu-open')
     } else {
         const menuOverlay = document.querySelector('.menu-overlay')
+        menu.classList.add('menu-close')
         menuOverlay.remove()    
     }
-
-    menu.classList.toggle('menu-open')
 }
 
 navbarBurger.addEventListener('click', () => toggleMenu())
