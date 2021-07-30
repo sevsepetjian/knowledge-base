@@ -10,7 +10,7 @@ def generate_tree_html(path, html = ''):
         cur_dir_path = Path(rel)
         dir_list = os.listdir(cur_dir_path.parent.absolute())
         if os.path.isdir(rel):
-            html += "<div class='menu-item-container'><div class='menu-container'><p class='menu-label'>%s</p><i class='fas fa-chevron-right'></i></div><ul class='menu-list is-hidden'>" % (file_title_name)
+            html += "<div class='menu-item-container'><div class='menu-container'><p class='menu-label'>%s</p><i class='fas fa-chevron-right'></i></div><ul id='%s' class='menu-list is-hidden'>" % (file_title_name, file_no_md)
             html += generate_tree_html(rel)
             html += "</ul></div>"
         else:

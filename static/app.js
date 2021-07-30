@@ -51,40 +51,46 @@ menuContainers.forEach(menuContainerItem => {
 // Add is-active to clicked nav item
 if (localStorage.getItem('menu-item-clicked')) {
     const menuItemData = JSON.parse(localStorage.getItem('menu-item-clicked'))
+    const menuListIds = JSON.parse(localStorage.getItem('menu-list-clicked'))
+
+    // Open all parent menu lists (form js bubbling) from ids stored from anchor tag click
+    menuListIds.menuListIds.forEach(id => {
+        const menuList = document.getElementById(id)
+        const arrowIcon = menuList.previousElementSibling.children[1]
+
+        menuList.classList.toggle('is-hidden')
+        arrowIcon.classList.contains('fa-chevron-right') ? arrowIcon.classList.replace('fa-chevron-right', 'fa-chevron-down') : arrowIcon.classList.replace('fa-chevron-down', 'fa-chevron-right')
+    })
 
     menuItems.forEach(menuItem => {
         if (menuItem.innerHTML == menuItemData.targetMenuItemValue) {
-            menuItem.classList.add('is-active')
-
-            // This block deals with the menu opening up to current post.Need to figure out how to get it to work for nested divs
-            const menuList = menuItem.parentElement.parentElement
-            const arrowIcon = menuItem.parentElement.parentElement.previousElementSibling.children[1]
-
-            menuList.classList.toggle('is-hidden')
-            arrowIcon.classList.contains('fa-chevron-right') ? arrowIcon.classList.replace('fa-chevron-right', 'fa-chevron-down') : arrowIcon.classList.replace('fa-chevron-down', 'fa-chevron-right')
-
-            // This is the js bubbling effect need to figure out how to user this so that when a link is clicked all sub dirs are opened when page loads
-            // const menuLists = document.querySelectorAll('.menu-list')
-            // menuLists.forEach(menuList => {
-            //     console.log(menuList)
-            //     menuList.addEventListener('click', e => {
-            //         console.log(menuList)
-            //         menuList.classList.toggle('is-hidden')
-            //     })
-            // })
+            menuItem.classList.add('active')
         }
     })
+
 }
 
 menuItems.forEach(menuItem => {
-    // Removes is-active completely if user clicks on home for example
-    localStorage.removeItem('menu-item-clicked')
+    // Removes is-active completely if user clicks on home for example and keeps menu open for all routes besides home
+    if (window.location.pathname === '/') {
+        localStorage.removeItem('menu-item-clicked')
+    }
 
     menuItem.addEventListener('click', e => {
-        console.log(e.target)
+        // Get all ids of parent menu list and store in local storage
+        const menuLists = document.querySelectorAll('.menu-list')
+        const menuListIds = []
+        menuLists.forEach(menuList => {
+            menuList.addEventListener('click', () => {
+                menuListIds.push(menuList.id)
+                localStorage.setItem('menu-list-clicked', JSON.stringify({ menuListIds }))
+            })
+        })
+
+        // Store clicked on anchor tag in local storage
         targetMenuItem = e.currentTarget
         targetMenuItemValue = targetMenuItem.innerHTML
 
-        localStorage.setItem('menu-item-clicked', JSON.stringify({ targetMenuItemValue, state: 'is-active'}))
+        localStorage.setItem('menu-item-clicked', JSON.stringify({ targetMenuItemValue, state: 'active'}))
     })
 })

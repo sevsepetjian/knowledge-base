@@ -3,14 +3,11 @@
 {% block content %}
 
 <section class="section">
-    <h1 class="title">Article Page</h1>
-    <h2 class="subtitle">
-        Testing from article page.
-    </h2>
-</section>
-
-<section class="section">
-    {{ html | safe }}
+    <div class="container">
+        <div class="content">
+            {{ html | safe }}
+        </div>
+    </div>
 </section>
 
 {% endblock %}

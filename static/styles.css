@@ -5,6 +5,11 @@ body {
     overflow: hidden;
 }
 
+.active {
+    background-color: #96C5FD;
+    color: #fff;
+}
+
 .columns {
     flex-grow: 1;
 }
@@ -94,7 +99,7 @@ body {
 
 .menu-list a {
     color: #7a7a7a; 
-    padding: .5em 0;
+    padding: .5em .5em;
 }
 
 .menu-container {
