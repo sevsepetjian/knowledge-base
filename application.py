@@ -3,16 +3,16 @@ from flask import Flask, render_template
 import markdown
 import os
 
-app = Flask(__name__)
+application = Flask(__name__)
 
-@app.route('/')
+@application.route('/')
 def index_page():
     path = os.path.dirname(os.path.abspath(__file__)) + '/categories'
     categories = generate_tree_html.generate_tree_html(path)
 
     return render_template('index.html', categories = categories)
 
-@app.route('/article/<filename>')
+@application.route('/article/<filename>')
 def article_page(filename):
     path = os.path.dirname(os.path.abspath(__file__)) + '/categories'
     categories = generate_tree_html.generate_tree_html(path)
@@ -26,4 +26,4 @@ def article_page(filename):
     return render_template('article.html', html = html, categories = categories)
 
 if __name__ == 'main':
-    app.run(debug = True)
+    application.run(debug = True)
