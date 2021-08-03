@@ -9,14 +9,14 @@
     <div class="navbar-icon">
         <a href="/" class="home-link">
             <div class="image is-32x32">
-                <img class="is-rounded" src="/static/assets/astronaut-icon.jpg" alt="An astronaut with a laptop.">
+                <img class="is-rounded" src="{{ url_for('static', filename='/assets/astronaut-icon.jpg') }}" alt="An astronaut with a laptop.">
             </div>
         </a>
     </div>
     <div class="navbar-icon"> 
         <a class="github-link" href="https://github.com/sevsepetjian" target="__blank">
             <figure class="image is-32x32">
-                <img src="/static/assets/github-brands.svg" alt="">
+                <img src="{{ url_for('static', filename='/assets/github-brands.svg') }}" alt="">
             </figure>
         </a>
     </div>

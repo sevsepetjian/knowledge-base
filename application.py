@@ -1,5 +1,5 @@
 from utils import *
-from flask import Flask, render_template
+from flask import Flask, render_template, make_response, send_from_directory
 import markdown
 import os
 
@@ -24,6 +24,16 @@ def article_page(filename):
     html = markdown.markdown(text)
     
     return render_template('article.html', html = html, categories = categories)
+
+@application.route('/sw.js')
+def sw():
+    response = make_response(
+        send_from_directory('static', path = 'sw.js')
+    )
+
+    response.headers['Content-Type'] = 'application/javascript'
+
+    return response
 
 if __name__ == 'main':
     application.run(debug = True)
