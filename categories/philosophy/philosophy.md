@@ -1,1 +1,0 @@
-### From the philosophy section
