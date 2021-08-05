@@ -13,7 +13,7 @@ There are 3 desirable properties of a good algorithim:
 2. Effecient (Big 'O').
 3. Easy to implement.
 
-Algorithims are different than heuristics. Algorithims produce a correct result, assuming that it is a real algorithim and not a incorrect solution pretending to be one. On the other hand, a heurestic while may usually do a good job, doesn't guarantee that it always will. 
+Algorithms are different than heuristics. Algorithms produce a correct result, assuming that it is a real algorithm and not a incorrect solution pretending to be one. On the other hand, a heurestic while may usually do a good job, doesn't guarantee that it always will. 
 
 Seeking counter examples that break pretender algorithims is a important part of the process.
 
@@ -24,7 +24,7 @@ Mathematical proof:
 - Chain of reasoning that takes you from assumptions to what you're trying to prove. 
 - Little square or QED denoting your are finished. Represents "thus it is demonstrated".
 
-Most common forms of algorithim notation:
+Most common forms of algorithm notation:
 
 - English
 - Pseudocode
@@ -34,11 +34,11 @@ Drawing may also be of use as a notation. It allows a visual representation of t
 
 Generally it is good to use English to epxress the idea generally, and only go down the abstraction chain as you need to become more precise with your solution.
 
-The heart of any algorithim is an idea. If your idea is not clearly revealed when you express an algorithim, than you are using too low level of a notation. 
+The heart of any algorithm is an idea. If your idea is not clearly revealed when you express an algorithm, than you are using too low level of a notation. 
 
 Ask the wrong problem, and you will get the wrong answer. Know what you're looking for, this can aslo apply to carefully modeling the problem.
 
-Narrow the set of allowable instances until there is a correct and efficent algorithim. 
+Narrow the set of allowable instances until there is a correct and efficent algorithm. 
 
 Traps of specifying output requirements:
 
@@ -57,7 +57,7 @@ Induction is a way to prove something for ALL n. Start by showing its obviously 
 
 Recursion is mathematical induction. You can use recursion to show induction in any given algorithm. Also summations are a good example of proving by induction. Both assume a base case, a general ability to create big things from smaller things. 
 
-Modeling is the art of formulating your app in terms of precisely described, well understood problems. You can completely eliminate the need to implement an algorithim, if you properly model because you might find something that currently exists that you can use.
+Modeling is the art of formulating your app in terms of precisely described, well understood problems. You can completely eliminate the need to implement an algorithm, if you properly model because you might find something that currently exists that you can use.
 
 You must define the problem in terms of computing properties of common structures such as:
 
