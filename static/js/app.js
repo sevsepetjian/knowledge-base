@@ -105,7 +105,7 @@ const init = () => {
     menuContainerClickListener()
     menuLocalStorageClickListener()
     window.location.pathname === '/' ? resetMenu() : openMenuToClickedArticle()
-    registerSW()
+    // registerSW()
 }
 
 window.document.addEventListener('load', init())
