@@ -39,6 +39,8 @@ Some facts about the common runtime classes.
 - Linear time and nlgn algorithms remain practical on inputs of one billion items.
 - An O(*lgn*) algorithms hardly breaks a sweat for any imaginable value of *n*.
 
+The fastest grwoing function dominates a slower growing one. Example, *g* dominates *f* when *f(n) = O(g(n))* written as *g>>f*. Constants don't change a functions dominance class. This however, is not true when you multiply functions. For example, *O(f(n)) * O(g(n)) <= c<sub>1</sub> * c<sub>2</sub> n<sup>3</sup>, if g(n) = n<sup>2</sup>*. This is the reason why two nested loops are *n<sup>2</sup>*. 
+
 Function runtime classes:
 
 - **Constant functions** - *f(n) = 1*. Such functions might measure the cost of adding two numbers.
@@ -51,6 +53,9 @@ Function runtime classes:
 - **Factorial functions** - *f(n) = n<sup>!</sup>*. An example would be generating all permuations or orderings of *n* items.
 
 The dominance relationshp of the above: *n!>>2<sup>n</sup>>>n<sup>3</sup>>>n<sup>2</sup>>>nlogn>>n>>logn>1*
+
+The formula for expressing these dominance relationships is: *n<sup>a</sup>* dominates *n<sup>b</sup>* if *a > b*, since *lim<sub>n -> &#8734;</sub> n<sup>b</sup>/n<sup>a</sup> = n<sup> b - a</sup> -> 0* (approaches '0'). For example, *n<sup>1.999</sup>/n<sup>2</sup> -> 0*. Meaning if you keep dividing this you will reach 0 which proves the dominance relationship.
+
 
 **Logarithm** (anagram of algorithm) is simply an inverse exponetial function. Saying *b<sup>x</sup> = y* is equivalent to saying that *x = log<sub>b</sub>y*. Logarithms arise whenever things are repeatedly halved.
 
