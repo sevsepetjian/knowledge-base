@@ -103,6 +103,21 @@ Building algorithms around data structures such as dictionaries and priority que
 
 **Hash Tables** - are a very practical way to maintain a dictionary. They exploit the fact that looking an item up in an array takes constant time once you know its index.
 
+A good hash function is:
+
+- Cheap to evaluate.
+- Tends to use all positions *0* to *M* with uniform frequency.
+
+An example of this can be using ASCII to map characters to integers, creating a unique hash in the process. The exact same words will share the same code, while any variations of those words (think anagrams) will produce a different code and be a entirely different hash. 
+
+Pragmatically, a hash table is often the best data structure to maintain a dictionary. However, the worst-case time is unpredictable.
+
+The best worse-case bounds come from balanced binary trees.
+
+Google uses hash algorithms for its search engine. Try to think of how you'd implement a hash table to uniquely identify all the documents on the web.
+
+For example, a system that detects plagiarized submissions (essays, documents, etc) can break down the entire length of the document to a single hash value. But, a change in a single character would break that system because the hash will now be different. A method to extend this idea is to create overlapping windows of characters that you hash and measure against the other document. For example you hash the first [1 - 100] characters, then [2-200] characters, and so on. This will allow you to check the substrings and find matches with the other documents substrings, allowing you to gauge if the documents are identical enough to warrant a review.  
+
 Hash table collisions occur when two distinct keys occasionaly hash to the same value. Two ways of dealing with collisions are:
 
 - **Chaining** - represent the hash table as an array of *m* linked lists. However, this approach devotes a considerable amount of memory to pointers.
